@@ -4,7 +4,7 @@ import { useState } from "react";
 useState
 function App() {
 
-  const [selectedPage, setSelectedPage] = useState("home");
+  const [selectedPage, setSelectedPage] = useState<string>("home");
 
   return (
       <div className="app bg-gray-20">

@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    //its allowing us to import files starting @ instead of ../../../src/components/blah blah
+    "paths":{
+       "@/*": ["./src/*"]
+       },
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",

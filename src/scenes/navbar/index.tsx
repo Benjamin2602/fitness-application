@@ -75,14 +75,23 @@ const Navbar = ({selectedPage, setSelectedPage}: Props) => {
                 </button>
 
             )}
-            
-
             </div>
-            
+        </div>
+    </div>
+
+    {/* this is the mobile menu */}
+    {/* below medium screen and when menutoggled or clicked we can able to see the menu otherwise we don't want the menu to be pop out  */}
+    {!isAboveMediumScreens && isMenuToggled && (
+        <div className = "fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl">
+            {/* close icon */}
+            <div className="flex justify-end p-12">
+                <button onClick={()=> setIsMenuToggles(!isMenuToggled)}>
+                    <XMarkIcon className="h-6 w-6 text-gray-400"/>
+                </button>
+            </div>
 
         </div>
-        
-    </div>
+    )}
   </nav>;
 };
 

@@ -83,7 +83,7 @@ const Home = ({ setSelectedPage }: Props) => {
         >
           <img alt="home-pageGraphic" src={HomePageGraphic} />
         </div>
-      </,div>
+      </motion.div>
 
       {/* sponsors */}
       {isAboveMediumScreens && (

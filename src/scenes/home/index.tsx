@@ -13,7 +13,7 @@ type Props = {
 };
 
 const Home = ({ setSelectedPage }: Props) => {
-  const isAboveMediumScreens = useMediaQuery("(max-width: 1060px)");
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   return (
     <section id="home" className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0">
       {/* Image and Main Header */}
@@ -50,9 +50,22 @@ const Home = ({ setSelectedPage }: Props) => {
         </div>
         {/* image */}
         <div>
-          <img alt="home-pageGraphic" src={HomePageGraphic}/>
+          <img alt="home-pageGraphic" src={HomePageGraphic} />
         </div>
       </div>
+
+      {/* sponsors */}
+      {isAboveMediumScreens && (
+        <div>
+          <div>
+            <div>
+              <img alt="redbull-sponsor" src={SponsorRedBull} />
+              <img alt="forbes-sponsor" src={SponsorForbes} />
+              <img alt="fortune-sponsor" src={SponsorFortune} />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

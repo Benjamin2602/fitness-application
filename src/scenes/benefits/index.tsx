@@ -29,12 +29,19 @@ const benefits: Array<BenefitType> = [
     description: "By working with an expert and certified trainer, individuals can benefit from personalized guidance and support that helps them achieve their fitness goals faster and more efficiently. "
   },
 ]
+// container is used to animate the benefits
+const container = {
+  hidden : {},
+  visible :{
+    transition : {staggerChildren : 0.2}
+  },
+};
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
-const index = ({ setSelectedPage }: Props) => {
+const Benefits = ({ setSelectedPage }: Props) => {
   return (
     <section id="benefits" className="mx-auto min-h-full w-5/6 py-20">
       <motion.div
@@ -53,7 +60,13 @@ const index = ({ setSelectedPage }: Props) => {
         </div>
 
         {/* Benefits */}
-        <div className="md:flex items-center justify-between gap-8 mt-5">
+        <motion.div
+          className="mt-5 items-center justify-between gap-8 md:flex"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={container}
+        >
 
           {/* map through the benefits array and render the Benefit component */}
           {benefits.map((benefit : BenefitType)=>(
@@ -66,10 +79,12 @@ const index = ({ setSelectedPage }: Props) => {
             />
           ))}
 
-        </div>
+        </motion.div>
+
+
       </motion.div>
     </section>
   );
 };
 
-export default index;
+export default Benefits;

@@ -108,17 +108,36 @@ const Benefits = ({ setSelectedPage }: Props) => {
             {/* title */}
             <div className="relative">
               <div className="before:absolute before:-left-20 before:-top-20 before:z-[-1] before:content-abstractwaves">
-                <div>
+                <motion.div
+                  //reusing the same animation
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.5 }}
+                  variants={{
+                    hidden: { opacity: 0, x: 50 },
+                    visible: { opacity: 1, x: 0 },
+                  }}
+                >
                   <Htext>
                     MILLIONS OF HAPPY MEMBERS GETTING{" "}
                     <span className="text-primary-500">FIT</span>
                   </Htext>
-                </div>
+                </motion.div>
               </div>
             </div>
 
             {/* description */}
-            <div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              variants={{
+                hidden: { opacity: 0, x: 50 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
               <p className="my-5">
                 Millions of happy members getting represents a thriving
                 community of individuals who have successfully achieved their
@@ -136,7 +155,7 @@ const Benefits = ({ setSelectedPage }: Props) => {
                 and support from experts and fellow members who have
                 successfully achieved their fitness goals.
               </p>
-            </div>
+            </motion.div>
 
             {/* button */}
             <div className="relative mt-16">

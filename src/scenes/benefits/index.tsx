@@ -4,9 +4,31 @@ import {
   AcademicCapIcon,
 } from "@heroicons/react/24/solid";
 
-import { SelectedPage } from "@/shared/types";
+import {BenefitType, SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
 import Htext from "@/shared/Htext";
+import Benefit from "./Benefit";
+
+
+//benefits=>  array of objects that contains the data for the benefits
+//BenefitType=> type of the benefit object
+const benefits: Array<BenefitType> = [  
+  {
+    icon : <HomeModernIcon className="h-10 w-10"/>,
+    title: "state of the art facility",
+    description: "If you're looking for a gym that offers the latest fitness technologies and equipment, a state-of-the-art fitness facility is the perfect place for you."
+  },
+  {
+    icon : <UserGroupIcon className="h-10 w-10"/>,
+    title: "Community of like minded people",
+    description: "Members of these communities support and motivate each other to reach their fitness goals, share tips and advice, and celebrate each other's successes."
+  },
+  {
+    icon : <AcademicCapIcon className="h-10 w-10"/>,
+    title: "Expert and certified trainers",
+    description: "By working with an expert and certified trainer, individuals can benefit from personalized guidance and support that helps them achieve their fitness goals faster and more efficiently. "
+  },
+]
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -28,6 +50,22 @@ const index = ({ setSelectedPage }: Props) => {
             get you to your ultimate fitness goals with ease. We provide true
             care into each and every member.
           </p>
+        </div>
+
+        {/* Benefits */}
+        <div className="md:flex items-center justify-between gap-8 mt-5">
+
+          {/* map through the benefits array and render the Benefit component */}
+          {benefits.map((benefit : BenefitType)=>(
+            <Benefit 
+            key={benefit.title}
+            icon={benefit.icon}
+            title={benefit.title}
+            description={benefit.description}
+            setSelectedPage={setSelectedPage}
+            />
+          ))}
+
         </div>
       </motion.div>
     </section>
